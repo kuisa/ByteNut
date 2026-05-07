@@ -436,13 +436,6 @@ class BytenutRenewal:
                 try:
                     # 登录
                     sb.uc_open_with_reconnect(URL_LOGIN_PANEL, reconnect_time=5)
-                    time.sleep(5)
-                    try:
-                        sb.uc_gui_click_captcha()
-                        sb.uc_gui_handle_captcha()
-                    except:
-                        pass
-                    time.sleep(5)
                     sb.wait_for_element_visible('input[placeholder="Username"]', timeout=25)
                     sb.type('input[placeholder="Username"]', user)
                     sb.type('input[placeholder="Password"]', pwd)
