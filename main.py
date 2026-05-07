@@ -436,6 +436,8 @@ class BytenutRenewal:
                 try:
                     # 登录
                     sb.uc_open_with_reconnect(URL_LOGIN_PANEL, reconnect_time=5)
+                        if not self.wait_turnstile(sb):
+                        return False, ""
                     sb.wait_for_element_visible('input[placeholder="Username"]', timeout=25)
                     sb.type('input[placeholder="Username"]', user)
                     sb.type('input[placeholder="Password"]', pwd)
